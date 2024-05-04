@@ -1,0 +1,189 @@
+
+/* END Reset __________________*/
+/*******************************/
+/*******************************/
+/*******************************/
+/* Layout **********************/
+/*******************************/
+ .row-form {
+	 max-width: 114rem;
+	 margin: 0 auto;
+	 white-space: nowrap;
+}
+ .row-form:not(:last-child) {
+	 margin-bottom: 0.5rem;
+}
+ .row-form::after {
+	 content: "";
+	 display: table;
+	 clear: both;
+}
+ .row-form [class^="col-"] {
+	 float: left;
+}
+ .row-form [class^="col-"]:not(:last-child) {
+	 margin-right: 6rem;
+}
+ .row-form .col-1-of-2 {
+	 width: calc((100% - 6rem) / 2);
+}
+ .row-form .col-1-of-4 {
+	 width: calc((100% - 3 * 6rem) /4);
+}
+ .row-form .col-2-of-4 {
+	 width: calc(2 * ((100% - 3 * 6rem) /4) + 6rem);
+}
+/* END Layout _________________*/
+/*******************************/
+/*******************************/
+/*******************************/
+/* Multi Step Form *************/
+/*******************************/
+ .multistep-form {
+	 width: 114rem;
+	 margin: 5rem auto;
+	 text-align: center;
+	 position: relative;
+}
+ .multistep-form fieldset {
+	 background: white;
+	 border: 0 none;
+	 border-radius: 3px;
+	 box-shadow: 0 0 1.5rem 1px rgba(0, 0, 0, 0.4);
+	 padding: 2rem 2rem;
+	 box-sizing: border-box;
+	 width: 80%;
+	 margin: 0 auto;
+	 position: relative;
+}
+ .multistep-form fieldset:not(:first-of-type) {
+	 display: none;
+}
+ .multistep-form .form-radio {
+	 font-family: inherit;
+	 color: #193446;
+	 font-size: 1.3rem;
+	 cursor: pointer;
+	 line-height: 4rem;
+	 padding-left: 1.2rem;
+	 text-align: left;
+}
+ .multistep-form .form-radio .form-radio-label {
+	 display: inline-block;
+	 cursor: pointer;
+}
+ .multistep-form .form-radio .form-input-radio:checked + .form-radio-label {
+	 color: green;
+	 font-weight: 700;
+}
+ .multistep-form .form-radio span {
+	 font-weight: 700;
+}
+ .multistep-form input[type="radio"] {
+	 margin-right: 3px;
+}
+ .multistep-form .form-radio-label:not(:last-child) {
+	 margin-right: 2rem;
+}
+ .multistep-form input[type="text"], .multistep-form textarea, .multistep-form input[type="email"] {
+	 padding: 1rem;
+	 border: 1px solid #777;
+	 border-radius: 3px;
+	 margin-bottom: 1rem;
+	 width: 100%;
+	 box-sizing: border-box;
+	 font-family: inherit;
+	 color: inherit;
+	 font-size: 1.3rem;
+	 transition: all 0.3s;
+}
+ .multistep-form input[type="text"]:focus, .multistep-form textarea:focus, .multistep-form input[type="email"]:focus {
+	 outline: none;
+	 box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
+	 border-bottom: 2px solid #27ae60;
+}
+ .multistep-form input[type="text"]:focus:invalid, .multistep-form textarea:focus:invalid, .multistep-form input[type="email"]:focus:invalid {
+	 border-bottom: 2px solid #ff7730;
+}
+ .multistep-form .action-button {
+	 width: 30rem;
+	 background: #27ae60;
+	 font-weight: 700;
+	 color: #fff;
+	 border: 0 none;
+	 border-radius: 2px;
+	 cursor: pointer;
+	 padding: 1rem 0.5rem;
+	 margin: 1rem 0.5rem;
+	 text-transform: uppercase;
+}
+ .multistep-form .action-button:hover, .multistep-form .action-button:focus {
+	 box-shadow: 0 0 0 2px white, 0 0 0 3px #27ae60;
+}
+ .multistep-form .form-label {
+	 font-size: 1.2rem;
+	 font-weight: 700;
+	 text-align: left;
+	 margin-left: 1.2rem;
+	 display: block;
+	 transition: all 0.3s;
+	 margin-top: -5px;
+}
+ .multistep-form .form-input:placeholder-shown + .form-label {
+	 opacity: 0;
+	 visibility: hidden;
+	 transform: translateY(-3.8rem);
+}
+/* END Multi Step __________*/
+
+
+ .progressbar {
+	 margin-bottom: 3rem;
+	 overflow: hidden;
+	/*CSS counters to number the steps*/
+	 counter-reset: step;
+}
+ .progressbar li {
+	 list-style-type: none;
+	 color: #193446;
+	 text-transform: uppercase;
+	 font-size: 0.9rem;
+	 width: 20%;
+	 float: left;
+	 position: relative;
+}
+ .progressbar li:before {
+	 content: counter(step);
+	 counter-increment: step;
+	 width: 20px;
+	 line-height: 20px;
+	 display: block;
+	 font-size: 10px;
+	 color: #333;
+	 background: white;
+	 border-radius: 3px;
+	 margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+ .progressbar li:after {
+	 content: '';
+	 width: 100%;
+	 height: 2px;
+	 background: white;
+	 position: absolute;
+	 left: -50%;
+	 top: 9px;
+	 z-index: -1;
+	/*put it behind the numbers*/
+}
+ .progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	 content: none;
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+ .progressbar li.active:before, .progressbar li.active:after {
+	 background: #27ae60;
+	 color: white;
+}
+ 
